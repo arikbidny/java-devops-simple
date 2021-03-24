@@ -3,7 +3,14 @@
   become: true
 
   tasks:
-    - name: build docker image using war file
-      command: docker build -t simple-devops-image .
-      args:
-        chdir: /opt/docker
+    - name: build docker image
+      community.docker.docker_image:
+        build:
+          path: .
+        name: simple-devops-image
+        tag: v1
+        source: build
+    # - name: build docker image using war file
+    #   command: docker build -t simple-devops-image .
+    #   args:
+    #     chdir: /opt/docker
