@@ -21,9 +21,7 @@
       ignore_errors: yes
 
     - name: build docker image using war file
-      command: docker build -t simple-devops-image .
-      args:
-        chdir: /opt/docker/
+      shell: cd /opt/docker; docker build -t simple-devops-image .
 
     - name: create container using simple-devops-image
       command: docker run -d --name simple-devops-container -p 8080:8080 simple-devops-image
