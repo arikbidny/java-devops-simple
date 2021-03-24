@@ -1,7 +1,5 @@
 ---
 - hosts: all
-  become: true
-
   tasks:
     # - name: build docker image
     #   community.docker.docker_image:
